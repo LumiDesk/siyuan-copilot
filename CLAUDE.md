@@ -43,3 +43,10 @@
 - 配置（URL / Token / max_depth）只放 `config.json`，不要再硬编码进代码。
 - 脚本一律从项目根目录用 `uv run python tools/<name>.py` 运行（依赖和 venv 都在根目录）。
 - 删除文件需先经用户同意；新增工具/功能可自行进行。
+- 提交（commit）信息不要包含 Claude 的署名（不加 `Co-Authored-By: Claude` 等尾注）。
+
+## 维护 API 文档
+
+当用户说「**检查 API 更新**」（或「看看思源 API 有没有变」「校验工具」之类）时，调用 **check-api-update** Skill
+（`.claude/skills/check-api-update/SKILL.md`）：拉取官方最新 `API.md` / `API_zh_CN.md`，与本地 `docs/` 比对，
+并跑一遍 `tools/` 确认依赖端点未失效。文档/工具的改动先汇报 diff，经同意再动。
